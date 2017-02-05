@@ -1,9 +1,9 @@
-var srm = {
+var multi = {
 	tags: [],
 	maxAllowed: 5,
 
 	init: function(settings) {
-		srm.eventTriggers();
+		multi.eventTriggers();
 
 		$("#srm-search-initial-number-text_tag").focus();
 		$("#srm-search-initial-number-text_tag").bind('paste', function(e){
@@ -26,13 +26,13 @@ var srm = {
 	eventTriggers: function() {
 		
 		$('#edit_whole').bind('click', function(event){
-			$('#edit-whole-value').val(srm.tags.toString());
+			$('#edit-whole-value').val(multi.tags.toString());
 			$('#editWholeModal').modal();
 		});
 
 		$('#editWholeFm').submit( function(event) {
-			srm.tags = $('#edit-whole-value').val().split(/[;,]+/);
-			srm.renderTags( $('#srm-search-initial-number-text'));
+			multi.tags = $('#edit-whole-value').val().split(/[;,]+/);
+			multi.renderTags( $('#srm-search-initial-number-text'));
 			$('#editWholeModal').modal('hide')
 			event.preventDefault();
 		});
@@ -47,28 +47,28 @@ var srm = {
 		 	'minInputWidth': '145px',
 		 	'interactive':true,
 		 	'defaultText':'Add equipment',
-		 	'onAddTag':srm.onAddTag,
-		 	'onRemoveTag':srm.onRemoveTag,
-		 	'onChangeTag' : srm.onChangeTag,
-		 	'onInsertTag' : srm.onInsertTag,
-			'checkValidity' : srm.checkValidity,
+		 	'onAddTag':multi.onAddTag,
+		 	'onRemoveTag':multi.onRemoveTag,
+		 	'onChangeTag' : multi.onChangeTag,
+		 	'onInsertTag' : multi.onInsertTag,
+			'checkValidity' : multi.checkValidity,
 		 	'delimiter': [',',';'],   // Or a string with a single delimiter. Ex: ';'
 		 	'removeWithBackspace' : true,
 		 	'minChars' : 0,
-		 	'maxTags' : srm.maxAllowed,
+		 	'maxTags' : multi.maxAllowed,
 		 	//'maxChars' : 10, // if not provided there is no limit
 		 	'placeholderColor' : '#55595c'
 		});
 
 		
 		$("#remove_invalids").bind('click', function(event) {
-			srm.removeInvalids();
+			multi.removeInvalids();
 		});
 	},
 
 	resetTags: function(target) {
 		target.importTags('');
-		srm.tags = [];
+		multi.tags = [];
 		$('#equipment-helper').text('').hide();
 		$('#srm-search-initial-number-text_tag').show();
 		$('#srm-search-initial-number-text_tagsinput').removeClass('invalid');
@@ -79,8 +79,8 @@ var srm = {
 		$("#srm-search-submit-button").prop('disabled', false);
 		//var target = $(e.target);
 		target.importTags('');
-		var temp = srm.tags;
-		srm.tags = [];
+		var temp = multi.tags;
+		multi.tags = [];
 		temp.forEach(function(tag, index) {
 			 var tag = $.trim(tag);
 			 if (index === position) {
@@ -89,9 +89,9 @@ var srm = {
 			 	target.addTag(tag, {checkForInvalidTags: false});
 			 }
 		});
-		srm.checkForInvalidTags();
-		if (srm.tags.length == 0) {
-			srm.resetTags(target);
+		multi.checkForInvalidTags();
+		if (multi.tags.length == 0) {
+			multi.resetTags(target);
 		}
 	},
 
@@ -99,8 +99,8 @@ var srm = {
 		var validTags = [];
 		var invalidTags = [];
 
-		srm.tags.forEach(function(tag){
-			if (srm.checkValidity(tag)=='') {
+		multi.tags.forEach(function(tag){
+			if (multi.checkValidity(tag)=='') {
 				validTags.push(tag);
 			} else {
 				invalidTags.push(tag);
@@ -121,12 +121,12 @@ var srm = {
 		$("#removeWarningModal").draggable();
 		$("#pasteModal").draggable();
 		$('#removeWarningModal #remove-invalids').bind('click', function(event) {
-			srm.tags = validTags;
-			srm.tags = srm.tags.filter(function(tag,i) {
-				return srm.tags.indexOf(tag) === i;
+			multi.tags = validTags;
+			multi.tags = multi.tags.filter(function(tag,i) {
+				return multi.tags.indexOf(tag) === i;
 			});
 
-			srm.renderTags( $('#srm-search-initial-number-text'));
+			multi.renderTags( $('#srm-search-initial-number-text'));
 			$('#removeWarningModal').modal('hide')
 		});
 	},
@@ -134,9 +134,9 @@ var srm = {
 	tidyTags : function(e) {
 		var temp = e.tags.split(',');
 	
-		srm.tags = srm.tags.concat(temp.splice(0, srm.maxAllowed-srm.tags.length));
-		srm.renderTags($(e.target));
-		var dropped = temp.splice(srm.maxAllowed-srm.tags.length);
+		multi.tags = multi.tags.concat(temp.splice(0, multi.maxAllowed-multi.tags.length));
+		multi.renderTags($(e.target));
+		var dropped = temp.splice(multi.maxAllowed-multi.tags.length);
 
 		if (dropped.length > 0) {
 			var clipBoardString='';
@@ -155,21 +155,21 @@ var srm = {
 	},
 
 	onChangeTag: function(position, newVal) {
-		var validityMessage = srm.checkValidity(newVal);
+		var validityMessage = multi.checkValidity(newVal);
 		if (validityMessage!='') {
 			$('#equipment-helper').text(validityMessage).addClass('invalid');
 		} else {
-			$('#equipment-helper').text('Entry count: '+(srm.tags.length)).removeClass('invalid');
+			$('#equipment-helper').text('Entry count: '+(multi.tags.length)).removeClass('invalid');
 		}
 
-		srm.tags[position] = newVal; 
-		srm.renderTags($('#srm-search-initial-number-text'));
+		multi.tags[position] = newVal; 
+		multi.renderTags($('#srm-search-initial-number-text'));
 	},
 
 	onRemoveTag: function(tag) {
-		var index = srm.tags.indexOf(tag);
-		srm.tags.splice(index,1);
-		srm.renderTags($('#srm-search-initial-number-text'));
+		var index = multi.tags.indexOf(tag);
+		multi.tags.splice(index,1);
+		multi.renderTags($('#srm-search-initial-number-text'));
 	},
 
 	checkValidity: function(tag) {
@@ -205,8 +205,8 @@ var srm = {
 	},
 	
 	onInsertTag: function(position, tag){
-		srm.tags.splice(position, 0, tag);
-		srm.renderTags($('#srm-search-initial-number-text'), position);
+		multi.tags.splice(position, 0, tag);
+		multi.renderTags($('#srm-search-initial-number-text'), position);
 	},
 
 	onAddTag: function(tag, checkForInvalidTags) {
@@ -215,21 +215,21 @@ var srm = {
 		tag = tag.replace(/\n/g,',').replace(/;/g,',');
 
 		if (tag.indexOf(',') > 0) {
-			srm.tidyTags({target: '#srm-search-initial-number-text', tags : tag});
+			multi.tidyTags({target: '#srm-search-initial-number-text', tags : tag});
 		} else {
 			var thenum = -1;
 			if (tag.match(/\d+/)) {
 				thenum = tag.match(/\d+/)[0];
 			}
 			var thechar = tag.replace(/[0-9]/g, '');
-			srm.tags.push(tag);
+			multi.tags.push(tag);
 		}
 		if(checkForInvalidTags==true)
 			{
-				srm.checkForInvalidTags();
+				multi.checkForInvalidTags();
 			}
 		
 	},
 
 };
-$(document).ready(srm.init);
+$(document).ready(multi.init);
