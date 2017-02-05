@@ -20,5 +20,10 @@
   "bugs": {
     "url": "https://github.com/rahulbats/multi-input/issues"
   },
-  "homepage": "https://github.com/rahulbats/multi-input#readme"
+  "homepage": "https://github.com/rahulbats/multi-input#readme",
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "font-awesome": "^4.7.0",
+    "jquery": "^3.1.1"
+  }
 }
