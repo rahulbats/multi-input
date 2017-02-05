@@ -1,0 +1,24 @@
+{
+  "name": "multi-input",
+  "version": "1.0.0",
+  "description": "library to create multi tags intput",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rahulbats/multi-input.git"
+  },
+  "keywords": [
+    "tags",
+    "multi",
+    "input"
+  ],
+  "author": "Rahul Bhattacharya",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rahulbats/multi-input/issues"
+  },
+  "homepage": "https://github.com/rahulbats/multi-input#readme"
+}
