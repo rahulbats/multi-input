@@ -240,7 +240,7 @@
 								if (validationError != '') {
 									spanTag.addClass('not_valid');
 									spanTag.prop("title",validationError );
-									spanTag.tooltip({'content':validationError});
+									
 								}
 								
 							}
