@@ -97,7 +97,7 @@
 					tagslist = new Array();
 				}
 
-				value = jQuery.trim(value).replace(/ /g, '').replace(/\t/g, '').toUpperCase();
+				value = jQuery.trim(value);
 				
 				
 				var skipTag = false;
@@ -240,7 +240,6 @@
 								if (validationError != '') {
 									spanTag.addClass('not_valid');
 									spanTag.prop("title",validationError );
-									spanTag.tooltip({'content':validationError});
 								}
 								
 							}

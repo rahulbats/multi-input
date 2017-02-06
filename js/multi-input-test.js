@@ -25,17 +25,7 @@ var multi = {
 
 	eventTriggers: function() {
 		
-		$('#edit_whole').bind('click', function(event){
-			$('#edit-whole-value').val(multi.tags.toString());
-			$('#editWholeModal').modal();
-		});
-
-		$('#editWholeFm').submit( function(event) {
-			multi.tags = $('#edit-whole-value').val().split(/[;,]+/);
-			multi.renderTags( $('#srm-search-initial-number-text'));
-			$('#editWholeModal').modal('hide')
-			event.preventDefault();
-		});
+	
 
 		var tagsInput = $('#srm-search-initial-number-text').tagsInput({
 			//'autocomplete_url': url_to_autocomplete_api,
@@ -185,7 +175,7 @@ var multi = {
 
          if (thenum < 0) {
                  return 'Invalid format. Equipment Initial must be 2 to 4 alpha characters. Equipment Number must be 1 to 10 digits';
-          }  else if (thechar.length < 2 || thechar.length > 4) {
+          }  else if (thechar.length < 2 || thechar.length > 5) {
                  return 'Invalid format. Equipment Initial must be 2 to 4 alpha characters';
           } else if ((thechar.length + ('' + thenum).length) < tag.length) {
                  return 'Invalid entry';
