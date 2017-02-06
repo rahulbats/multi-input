@@ -12,7 +12,6 @@ Get it on npm [here](https://www.npmjs.com/package/multi-input)
 
 Use it as follows
 ```markdown
-Syntax highlighted code block
 var tagsInput = $('#srm-search-initial-number-text').tagsInput({
 			//'autocomplete_url': url_to_autocomplete_api,
 		 	//'autocomplete': { option: value, option: value},
@@ -35,6 +34,7 @@ var tagsInput = $('#srm-search-initial-number-text').tagsInput({
 		 	//'maxChars' : 10, // if not provided there is no limit
 		 	'placeholderColor' : '#55595c'
 		});
+```
 
 #[DEMO link](https://rahulbats.github.io/multi-input/)
 
