@@ -588,7 +588,7 @@
 		var id = $(obj).attr('id');
 		var tags = val.split(delimiter[id]);
 		for (i=0; i<tags.length; i++) {
-			$(obj).addTag(tags[i],{focus:false,callback:false,maxTags:options.maxTags});
+			$(obj).addTag(tags[i],{focus:false,callback:false});
 		}
 		if(tags_callbacks[id] && tags_callbacks[id]['onChange'])
 		{
