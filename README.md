@@ -36,6 +36,6 @@ var tagsInput = $('#srm-search-initial-number-text').tagsInput({
 		});
 ```
 
-#[DEMO link](https://rahulbats.github.io/multi-input/)
+##[DEMO link](https://rahulbats.github.io/multi-input/)
 
-##[Source for the demo](https://github.com/rahulbats/multi-input/tree/gh-pages)
+###[Source for the demo](https://github.com/rahulbats/multi-input/tree/gh-pages)
