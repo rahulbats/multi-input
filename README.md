@@ -1,37 +1,41 @@
-## Welcome to GitHub Pages
+## Welcome to Multi Items 
 
-You can use the [editor on GitHub](https://github.com/rahulbats/multi-input/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+Multi-items is a widget to allow multiple entries in a input field.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+This widget is built using the base code of [Jquery-tags-input](https://github.com/xoxco/jQuery-Tags-Input).
 
-### Markdown
+The initial version uses Jquery, angular and react versions are in the works.
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+### How to get it 
 
+Get it on npm [here](https://www.npmjs.com/package/multi-input)
+
+Use it as follows
 ```markdown
 Syntax highlighted code block
+var tagsInput = $('#srm-search-initial-number-text').tagsInput({
+			//'autocomplete_url': url_to_autocomplete_api,
+		 	//'autocomplete': { option: value, option: value},
+		 	'min-height':'45px',
+		 	'height' : 'auto',
+		 	'maxheight' : '100px',
+		 	'width':'100%',
+		 	'minInputWidth': '145px',
+		 	'interactive':true,
+		 	'defaultText':'Add equipment',
+		 	'onAddTag':srm.onAddTag,
+		 	'onRemoveTag':srm.onRemoveTag,
+		 	'onChangeTag' : srm.onChangeTag,
+		 	'onInsertTag' : srm.onInsertTag,
+			'checkValidity' : srm.checkValidity,
+		 	'delimiter': [',',';'],   // Or a string with a single delimiter. Ex: ';'
+		 	'removeWithBackspace' : true,
+		 	'minChars' : 0,
+		 	'maxTags' : srm.maxAllowed,
+		 	//'maxChars' : 10, // if not provided there is no limit
+		 	'placeholderColor' : '#55595c'
+		});
 
-# Header 1
-## Header 2
-### Header 3
+#[DEMO link](https://rahulbats.github.io/multi-input/)
 
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/rahulbats/multi-input/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+##[Source for the demo](https://github.com/rahulbats/multi-input/tree/gh-pages)
