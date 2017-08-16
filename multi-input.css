@@ -1,8 +1,8 @@
 div.tagsinput { /*border:1px solid #CCC;*/ background: #FFF; padding:5px; width:300px; height:100px; overflow-y: auto; display: flex; flex-direction: row;flex-wrap: wrap;cursor: text;}
 div.tagsinput span.tag { border: 1px solid #ebf5d6; -moz-border-radius:2px; -webkit-border-radius:2px; display: block; /*float: left;*/ padding: 5px 0px 5px 5px; text-decoration:none; background: #ebf5d6; color: #638421; margin-right: 5px; margin-bottom:5px;font-family: helvetica;  font-size:13px; cursor: pointer; border-radius: 0.25rem; height: 30px}
 div.tagsinput span.tag.animate { animation:appear .8s;  }
-div.tagsinput span.tag a { font-weight: bold; color: #638426; text-decoration:none; font-size: 15px;padding: 4px 8px 7px;background-color: #daf3a7;border-radius: 0.25rem 0.25rem 0.25rem 0rm; }
-div.tagsinput span.tag.not_valid a { font-weight: bold; color: #90111A; text-decoration:none; font-size: 15px;padding: 4px 8px 7px;;background-color: #ffc0c6;border-radius: 0.25rem 0.25rem 0.25rem 0rm; }
+div.tagsinput span.tag a { font-weight: bold; color: #638426; text-decoration:none; font-size: 15px;padding: 6px 8px 4px;background-color: #daf3a7;border-radius: 0.25rem 0.25rem 0.25rem 0rm; }
+div.tagsinput span.tag.not_valid a { font-weight: bold; color: #90111A; text-decoration:none; font-size: 15px;background-color: #ffc0c6;border-radius: 0.25rem 0.25rem 0.25rem 0rm; }
 div.tagsinput input { width:80px; margin:0px; font-family: helvetica; font-size: 16px; border:1px solid transparent; padding:5px; background: transparent; color: #000; outline:0px;  margin-right:5px; margin-bottom:5px; }
 div.tagsinput textarea { width:80px; margin:0px; font-family: helvetica; font-size: 13px; border:1px solid transparent; padding:5px; background: transparent; color: #55595c; outline:0px;  margin-right:5px; margin-bottom:0; }
 div.tagsinput div { display:inline; /*float: left;*/ } 
@@ -65,3 +65,8 @@ div.tagsinput span.tag.insert{
 	border-radius: 2px;
 }
 
+div#new-equipment-error {
+  position: relative;
+  width: 100%;
+  height: auto;
+}
