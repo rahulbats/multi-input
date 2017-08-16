@@ -510,9 +510,9 @@ multi = {
 			}
 	
 			if (thenum < 0) {
-				return 'Invalid format. Equipment Initial must be 2 to 4 alpha characters. Equipment Number must be 1 to 10 digits';
+				return 'Invalid format. Equipment Initial must be 2 to 5 alpha characters. Equipment Number must be 1 to 10 digits';
 			} else if (thechar.length < 2 || thechar.length > 5) {
-				return 'Invalid format. Equipment Initial must be 2 to 4 alpha characters';
+				return 'Invalid format. Equipment Initial must be 2 to 5 alpha characters';
 			} else if ((thechar.length + ('' + thenum).length) < tag.length) {
 				return 'Invalid format. Equipment Number must be 1 to 10 digits';
 			} else {
